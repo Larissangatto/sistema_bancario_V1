@@ -12,14 +12,14 @@ menu_inicial = """
 [s] Sacar
 [e] Exibir extrato
 [q] Sair
-...............................................
+...................................................
 """
 # iniciando variaveis da conta do cliente
 saldo = 0
-limite_saque = 500
+LIMITE_SAQUE = 500
 extrato  = ""
 numero_saques = 0
-limite_saques = 3
+LIMITE_SAQUES = 3
 # código sem considerar operações mecanicas.
 while True:
     opcao =  input(menu_inicial)
@@ -53,11 +53,11 @@ while True:
                 print("\n###-Falha da operação: Saldo insuficiente!")
                 print("\n\n-Você será direcionado ao menu inicial!\n")
                 time.sleep(2)
-            elif numero_saques >= limite_saques: 
+            elif numero_saques >= LIMITE_SAQUES: 
                 print("\n###-Falha da operação: Numero de saques diário já foi atingido.")
                 print("\n\n-Você será direcionado ao menu inicial!\n")
                 time.sleep(2)
-            elif saque > limite_saque:
+            elif saque > LIMITE_SAQUE:
                 print("\n###-Falha da operação: O Valor limite para cada saque é de R$ 500,00.")
                 print("\n\n-Você será direcionado ao menu inicial!\n")
                 time.sleep(2)
@@ -79,9 +79,9 @@ while True:
     elif opcao == "e":
         data = datetime.datetime.now()     
         if extrato == "":
-            print(f"=========================Extrato========================:\n\n-Você  não realizou nenhuma trasação hoje {data.strftime('%d.%m.%Y')}\n  Seu saldo atual é de R$ {saldo}.00!\n================================================================== \n\n-Você será direcionado ao menu inicial! \n")
+            print(f"=========================Extrato==========================\n\n-Você  não realizou nenhuma trasação hoje {data.strftime('%d.%m.%Y')}\n  Seu saldo atual é de R$ {saldo}.00!\n================================================================== \n\n-Você será direcionado ao menu inicial! \n")
         else:
-            print(f"=========================Extrato========================:\n\n-Você realizou as seguintes operações:\n{extrato}\n  Seu saldo atual é R$ {saldo}.00 as {data.strftime('%H:%M - %d.%m.%Y')}!\n=========================================================== \n\n-Você será direcionado ao menu inicial!\n")
+            print(f"=========================Extrato==========================\n\n-Você realizou as seguintes operações:\n{extrato}\n  Seu saldo atual é R$ {saldo}.00 as {data.strftime('%H:%M - %d.%m.%Y')}!\n=========================================================== \n\n-Você será direcionado ao menu inicial!\n")
     
     elif opcao =="q":
         print("***Obrigado por utilizar nosso serviço eletrônico.\n")
